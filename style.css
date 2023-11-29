@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#loading-square {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0px solid black;
+}
+
+#loading-square::after {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    animation: color-change 16s linear infinite, text-change 16s linear infinite;
+    font-family: monospace;
+    font-size: 50px;
+}
+
+#loading-bar {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    z-index: 100;
+    background-color: black;
+    animation: load 16s linear infinite;
+    border-radius: 50%;
+}
+
+@keyframes load {
+    0%, 100% { top: 0; left: 0; }
+    25% { top: 0; left: 100%; transform: translate(-100%, 0); }
+    50% { top: 100%; left: 100%; transform: translate(-100%, -100%); }
+    75% { top: 100%; left: 0; transform: translate(0, -100%); }
+}
+
+@keyframes color-change {
+    0%, 100% { background-color: white; }
+    25% { background-color: green; }
+    50% { background-color: white; }
+    75% { background-color: yellow; }
+}
+
+@keyframes text-change {
+    0%, 12.5% { content: "INHALE"; }
+    37.5% { content: "hold"; }
+    62.5% { content: "EXHALE"; }
+    87.5%, 99.9% { content: "hold"; }
+
+}
