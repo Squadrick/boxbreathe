@@ -26,6 +26,7 @@ body {
     animation: color-change 16s linear infinite, text-change 16s linear infinite;
     font-family: monospace;
     font-size: 50px;
+    color: black;
 }
 
 #loading-bar {
